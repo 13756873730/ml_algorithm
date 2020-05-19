@@ -8,17 +8,6 @@ random_state = 666
 np.random.seed(random_state)
 
 
-def load_data():
-    # load data
-    iris = datasets.load_iris()
-    X = iris.data
-    y = iris.target
-    # shuffle
-    shuffle_indexes = np.random.permutation(len(X))
-    X, y = X[shuffle_indexes], y[shuffle_indexes]
-    return X, y
-
-
 class KNeighborsClassifier:
     def __init__(self, n_neighbors=5, p=2):
         self.n_neighbors = n_neighbors
@@ -57,7 +46,16 @@ class KNeighborsClassifier:
         return score
 
 
-pass
+def load_data():
+    # load data
+    iris = datasets.load_iris()
+    X = iris.data
+    y = iris.target
+    # shuffle
+    shuffle_indexes = np.random.permutation(len(X))
+    X, y = X[shuffle_indexes], y[shuffle_indexes]
+    return X, y
+
 
 if __name__ == '__main__':
     X, y = load_data()
