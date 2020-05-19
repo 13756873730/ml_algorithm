@@ -1,8 +1,8 @@
 import numpy as np
 from collections import Counter
 from sklearn import datasets
-from MachineLearning.HandWritten.model_selection import train_test_split
-from MachineLearning.HandWritten.metrics import accuracy_score
+from ml.tools.model_selection import train_test_split
+from ml.tools.metrics import accuracy_score
 
 random_state = 666
 np.random.seed(random_state)
