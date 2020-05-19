@@ -2,6 +2,8 @@
   <dictionary name="liuyingdi">
     <words>
       <w>minkowski</w>
+      <w>pred</w>
+      <w>rmse</w>
       <w>scaler</w>
     </words>
   </dictionary>
