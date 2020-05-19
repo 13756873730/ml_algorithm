@@ -7,7 +7,7 @@ random_state = 666
 np.random.seed(random_state)
 
 
-def load_data(random_state=666):
+def load_data():
     # load data
     iris = datasets.load_iris()
     X = iris.data
@@ -35,5 +35,5 @@ if __name__ == '__main__':
     )
     knn_clf.fit(X=X_train, y=y_train)
     score = knn_clf.score(X=X_test, y=y_test)
-    print(score)
+    print(score)  # 0.9333333333333333
     pass
