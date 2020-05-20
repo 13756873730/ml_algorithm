@@ -6,6 +6,7 @@
       <w>pred</w>
       <w>rmse</w>
       <w>scaler</w>
+      <w>sklearn</w>
     </words>
   </dictionary>
 </component>

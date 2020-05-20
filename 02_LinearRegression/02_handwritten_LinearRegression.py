@@ -10,16 +10,16 @@ np.random.seed(random_state)
 class LinearRegression:
     def __init__(self):
         self._theta = None
-        self._intercept = None
-        self._coefficients = None
+        self.intercept_ = None
+        self.coefficients_ = None
 
     def fit(self, X_train, y_train):
         Xb = np.ones(shape=(X_train.shape[0], X_train.shape[1] + 1))
         Xb[:, 1:] = X_train
         Xb_T = np.transpose(Xb)
         self._theta = np.linalg.inv(Xb_T.dot(Xb)).dot(Xb_T).dot(y_train)
-        self._intercept = self._theta[0]
-        self._coefficients = self._theta[1:]
+        self.intercept_ = self._theta[0]
+        self.coefficients_ = self._theta[1:]
 
     def _predict_one(self, X_row):
         Xb = np.ones(shape=(X_row.shape[0] + 1,))
