@@ -1,18 +1,22 @@
 import numpy as np
 from sklearn import datasets
-from ml.tools.preprocessing import standardization
-from ml.tools.model_selection import train_test_split
-from ml.tools.metrics import r2_score
+from tools.preprocessing import standardization
+from tools.model_selection import train_test_split
+from tools.metrics import r2_score
 
 random_state = 666
 np.random.seed(random_state)
 
 
-class LinearRegression:
+class PCA:
     def __init__(self):
         self._theta = None
         self._intercept = None
         self._coefficients = None
+        self.X = None
+
+    def demean(self):
+        pass
 
     def fit(self, X_train, y_train, learning_rate=1e-4, n_iters=1e4):
 
