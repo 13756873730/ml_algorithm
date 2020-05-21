@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn import datasets
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from tools.model_selection import train_test_split
+from tools.metrics import accuracy_score
 
 random_state = 666
 np.random.seed(random_state)
