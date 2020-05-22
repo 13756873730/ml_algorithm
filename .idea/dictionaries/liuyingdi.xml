@@ -3,6 +3,7 @@
     <words>
       <w>iters</w>
       <w>minkowski</w>
+      <w>multinomial</w>
       <w>pred</w>
       <w>rmse</w>
       <w>scaler</w>
