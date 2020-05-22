@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.linear_model import LogisticRegression
+from tools.metrics import confusion_matrix, precision_score, recall_score, f1_score
 
 random_state = 666
 np.random.seed(random_state)
@@ -32,45 +33,6 @@ def create_pipeline(degree=2, penalty='l2', C=1.0, multi_class='auto', solver='l
     ])
 
 
-def tn(y_true, y_predict):
-    return np.sum((y_true == 0) & (y_predict == 0))
-
-
-def fp(y_true, y_predict):
-    return np.sum((y_true == 0) & (y_predict == 1))
-
-
-def fn(y_true, y_predict):
-    return np.sum((y_true == 1) & (y_predict == 0))
-
-
-def tp(y_true, y_predict):
-    return np.sum((y_true == 1) & (y_predict == 1))
-
-
-def confusion_matrix(y_true, y_predict):
-    return np.array([
-        [tn(y_true, y_predict), fp(y_true, y_predict)],
-        [fn(y_true, y_predict), tp(y_true, y_predict)]
-    ])
-
-
-def precision(confusion_matrix):
-    fp = confusion_matrix[0, 1]
-    tp = confusion_matrix[1, 1]
-    if tp == 0:
-        return 0
-    return tp / (fp + tp)
-
-
-def recall(confusion_matrix):
-    fn = confusion_matrix[1, 0]
-    tp = confusion_matrix[1, 1]
-    if tp == 0:
-        return 0
-    return tp / (fn + tp)
-
-
 if __name__ == '__main__':
     X, y = load_data()
 
@@ -83,10 +45,13 @@ if __name__ == '__main__':
     print(score)  # 0.9972222222222222
 
     y_predict = log_reg.predict(X_test)
-    confusion_matrix = confusion_matrix(y_true=y_test, y_predict=y_predict)
+    confusion_matrix = confusion_matrix(y_true=y_test, y_pred=y_predict)
     print(confusion_matrix)
 
-    precision = precision(confusion_matrix)
-    recall = recall(confusion_matrix)
+    precision = precision_score(y_true=y_test, y_pred=y_predict)
+    recall = recall_score(y_true=y_test, y_pred=y_predict)
     print('precision={}, score={}'.format(precision, recall))
+
+    f1_score = f1_score(y_true=y_test, y_pred=y_predict)
+    print('f1_score={}'.format(f1_score))
     pass

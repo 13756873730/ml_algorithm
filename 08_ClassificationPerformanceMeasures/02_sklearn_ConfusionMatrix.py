@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, precision_score, recall_score
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 
 random_state = 666
 np.random.seed(random_state)
@@ -51,4 +51,7 @@ if __name__ == '__main__':
     precision = precision_score(y_true=y_test, y_pred=y_predict)
     recall = recall_score(y_true=y_test, y_pred=y_predict)
     print('precision={}, score={}'.format(precision, recall))
+
+    f1_score = f1_score(y_true=y_test, y_pred=y_predict)
+    print('f1_score={}'.format(f1_score))
     pass
