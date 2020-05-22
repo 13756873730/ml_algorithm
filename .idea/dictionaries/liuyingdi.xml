@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="liuyingdi">
     <words>
+      <w>fprs</w>
       <w>iters</w>
       <w>minkowski</w>
       <w>multinomial</w>
@@ -9,6 +10,7 @@
       <w>rmse</w>
       <w>scaler</w>
       <w>sklearn</w>
+      <w>tprs</w>
     </words>
   </dictionary>
 </component>

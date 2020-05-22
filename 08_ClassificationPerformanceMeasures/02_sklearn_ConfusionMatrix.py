@@ -1,10 +1,11 @@
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, roc_curve, roc_auc_score
 
 random_state = 666
 np.random.seed(random_state)
@@ -54,4 +55,16 @@ if __name__ == '__main__':
 
     f1_score = f1_score(y_true=y_test, y_pred=y_predict)
     print('f1_score={}'.format(f1_score))
+
+    # ROC_Curve
+    y_score = log_reg.decision_function(X_test)
+    fprs, tprs, thresholds = roc_curve(y_true=y_test, y_score=y_score)
+    # print(fprs.shape, tprs.shape, thresholds.shape)
+    plt.plot(fprs, tprs)
+    plt.show()
+
+    # ROC_AUC_Score
+    roc_auc_score = roc_auc_score(y_true=y_test, y_score=y_score)
+    print('roc_auc_score={}'.format(roc_auc_score))
+
     pass
