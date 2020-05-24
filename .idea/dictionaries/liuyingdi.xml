@@ -3,6 +3,7 @@
     <words>
       <w>coef</w>
       <w>fprs</w>
+      <w>gini</w>
       <w>iters</w>
       <w>minkowski</w>
       <w>multinomial</w>
