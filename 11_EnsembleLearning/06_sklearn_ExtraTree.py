@@ -30,6 +30,6 @@ if __name__ == '__main__':
     rf_clf.fit(X_train, y_train)
 
     score = rf_clf.score(X_test, y_test)
-    print('oob score: {}'.format(score))
+    print('score: {}'.format(score))
 
     pass
