@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
 
 random_state = 666
@@ -22,9 +22,8 @@ if __name__ == '__main__':
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
-    ada_boosting_clf = AdaBoostClassifier(
-        base_estimator=DecisionTreeClassifier(max_leaf_nodes=16),
-        n_estimators=500,
+    ada_boosting_clf = GradientBoostingClassifier(
+        n_estimators=1000,
         learning_rate=1e-4,
         random_state=random_state
     )
