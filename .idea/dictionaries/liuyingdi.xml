@@ -2,9 +2,12 @@
   <dictionary name="liuyingdi">
     <words>
       <w>coef</w>
+      <w>dataset</w>
+      <w>datasets</w>
       <w>fprs</w>
       <w>gini</w>
       <w>iters</w>
+      <w>kmeans</w>
       <w>minkowski</w>
       <w>multinomial</w>
       <w>pred</w>
